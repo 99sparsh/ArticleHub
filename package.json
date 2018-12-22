@@ -1,0 +1,18 @@
+{
+  "name": "nodekb",
+  "version": "1.0.0",
+  "description": "Simple knowledge base app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sparsh",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.0",
+    "morgan": "^1.9.1",
+    "pug": "^2.0.3"
+  }
+}

@@ -3,22 +3,41 @@ html
         head
                 title Knowledgebase
                 link(rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.css')
+                link(rel='stylesheet' href='/css/style.css')
         body
-                <nav class="navbar navbar-inverse">
-                        <div class="container-fluid">
-                        <div class="navbar-header">
-                        <a class="navbar-brand" href="/">KnowledgBase</a>
-                        </div>
-                        <ul class="nav navbar-nav">
-                        <li><a href="/articles/add">Add article</a></li>
-                        <li><a href="/">Home</a></li>
-                        </ul>
-                        </div>
-                        </nav>
+                nav.navbar.navbar-expand-sm.bg-dark
+                        // Links
+                        ul.navbar-nav
+                                li.nav-item
+                                        a.nav-link(href='/') Knowledgebase
+                                li.nav-item
+                                        a.nav-link(href='/') Home
+                                if user
+                                        li.nav-item
+                                                a.nav-link(href='/articles/add') Add Article
+                        ul.navbar-nav.ml-auto.nav-fill.w-25
+                                if user
+                                        li
+                                                a(href='/users/logout') Logout
+                                else
+                                        li.nav-item
+                                                a(href='/users/register') Register 
+                                        li.nav-item
+                                                a(href='/users/login') Login 
+
+                                        
+                                        
 
                 .container
+                        != messages('message', locals)
+                        if errors 
+                                each error, i in errors 
+                                        div(class="alert alert-danger") #{error.imsg}
                         block content
                 br
                 hr
                 footer
                         p Copyright &copy; 2018
+                script(src="https://code.jquery.com/jquery-3.3.1.min.js")
+                script(src='/bower_components/bootstrap/dist/js/bootstrap.js')
+                script(src='/js/main.js')
